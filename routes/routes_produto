@@ -1,0 +1,24 @@
+package routes
+
+import (
+	controller "apirestdelta/controllers"
+
+	"github.com/gin-gonic/gin"
+)
+
+func HandleRequestsProduto() {
+	r := gin.Default()
+
+	r.GET("/alunos", controller.ExibeTodosAlunos)
+	r.GET("/:nome", controller.Saudacao)
+	r.POST("alunos", controller.CriaNovoAluno)
+	r.GET("/alunos/:id", controller.BuscaAlunoPorID)
+	r.DELETE("/alunos/:id", controller.DeletarAluno)
+	r.PATCH("/alunos/:id", controller.EditaALuno)
+	r.GET("/alunos/cpf/:cpf", controller.BuscarAlunoPorCPF)
+
+	r.GET("/index", controller.ExibePaignaIndex)
+	r.NoRoute(controller.RotaNaoEncontrada)
+
+	r.Run()
+}
