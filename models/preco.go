@@ -8,19 +8,19 @@ import (
 )
 
 type Preco struct {
-	Prcid                   uuid.UUID `json:"Prcdid"`
-	Prcid_empresa_cad       uuid.UUID `json:"Prcid_empresa_cad"`
-	Prcid_produto_cad       uuid.UUID `json:"Prcid_produto_cad"`
-	Prcid_preco_tabela      uuid.UUID `json:"Prcid_preco_tabela"`
-	Prcvalor                float64   `json:"Prcvalor"`
-	Prcvalido               bool      `json:"Prcvalido"`
-	Prcincdata              time.Time `json:"Prcincdata"`
-	Prcaltdata              time.Time `json:"Prcaltdata"`
-	Prcid_usuario           uuid.UUID `json:"Prcid_usuario"`
-	Prcid_produto_codigo    uuid.UUID `json:"Prcid_produto_codigo"`
-	Prcatvdata              time.Time `json:"Prcatvdata"`
-	Prcid_movimentoprodutos uuid.UUID `json:"Prcid_movimentoprodutos"`
-	Prcagendamento          bool      `json:"Prcagendamento"`
+	Prcid                   uuid.UUID `gorm:"primaryKey" json:"id"`
+	Prcid_empresa_cad       uuid.UUID `json:"id_empresa_cad"`
+	Prcid_produto_cad       uuid.UUID `json:"id_produto_cad"`
+	Prcid_preco_tabela      uuid.UUID `json:"id_preco_tabela"`
+	Prcvalor                float64   `json:"valor"`
+	Prcvalido               bool      `json:"valido"`
+	Prcincdata              time.Time `json:"incdata"`
+	Prcaltdata              time.Time `json:"altdata"`
+	Prcid_usuario           uuid.UUID `json:"id_usuario"`
+	Prcid_produto_codigo    uuid.UUID `json:"id_produto_codigo"`
+	Prcatvdata              time.Time `json:"atvdata"`
+	Prcid_movimentoprodutos uuid.UUID `json:"id_movimentoprodutos"`
+	Prcagendamento          bool      `json:"agendamento"`
 }
 
 func ValidarDadosPreco(preco *Preco) error {

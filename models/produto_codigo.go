@@ -8,21 +8,18 @@ import (
 )
 
 type Produto_codigo struct {
-	Prcdid                 uuid.UUID `json:"Prcdid"`
-	Prcdid_produto_cad     uuid.UUID `json:"Prcdid_produto_cad"`
-	Prcdid_produto_cad_pai uuid.UUID `json:"Prcdid_produto_cad_pai"`
-	Prcdid_unidades        uuid.UUID `json:"Prcdid_unidades"`
-	Prcdcodigo             string    `json:"Prcdcodigo"`
-	Prcdcodigobarra        string    `json:"Prcdcodigobarra"`
-	Prcdcodigoref          string    `json:"Prcdcodigoref"`
-	Prcdpeso_bruto         float64   `json:"Prcdpeso_bruto"`
-	Prcdpeso_liquido       float64   `json:"Prcdpeso_liquido"`
-	Prcdtaxa_conversao     float64   `json:"Prcdtaxa_conversao"`
-	Prcdfiscal             bool      `json:"Prcdfiscal"`
-	Prcdhash               string    `json:"Prcdhash"`
-	Prcdincdata            time.Time `json:"Prcdincdata"`
-	Prcdid_usuario         uuid.UUID `json:"Prcdid_usuario"`
-	Prcdid_externo         int       `json:"Prcdid_externo"`
+	Prcdid             uuid.UUID `gorm:"primaryKey" json:"id"`
+	Prcdid_produto_cad uuid.UUID `json:"id_produto_cad"`
+	Prcdid_unidades    uuid.UUID `json:"id_unidades"`
+	Prcdcodigo         string    `json:"codigo"`
+	Prcdcodigobarra    string    `json:"codigobarra"`
+	Prcdcodigoref      string    `json:"codigoref"`
+	Prcdpeso_bruto     float64   `json:"peso_bruto"`
+	Prcdpeso_liquido   float64   `json:"peso_liquido"`
+	Prcdtaxa_conversao float64   `json:"taxa_conversao"`
+	Prcdfiscal         bool      `json:"fiscal"`
+	Prcdincdata        time.Time `json:"incdata"`
+	Prcdid_usuario     uuid.UUID `json:"id_usuario"`
 }
 
 func ValidarDadosProdutoCodigo(produto *Produto_codigo) error {

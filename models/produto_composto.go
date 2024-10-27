@@ -8,15 +8,15 @@ import (
 )
 
 type Produto_cad_composto struct {
-	Prccid                   uuid.UUID `json:"Prcdid"`
-	Prcid_produto_cad_origem uuid.UUID `json:"Prcid_produto_cad_origem"`
-	Prcid_produto_cad        uuid.UUID `json:"Prcid_produto_cad"`
-	Prcquantidade            float64   `json:"Prcquantidade"`
-	Prcincdata               time.Time `json:"Prcincdata"`
-	Prcaltdata               time.Time `json:"Prcaltdata"`
-	Prcid_usuario            uuid.UUID `json:"Prcid_usuario"`
-	Prcgrupo                 int       `json:"Prcgrupo"`
-	Prcid_produto_codigo     uuid.UUID `json:"Prcid_produto_codigo"`
+	Prccid               uuid.UUID `gorm:"primaryKey" json:"id"`
+	Prcid_produto_codigo uuid.UUID `json:"id_produto_codigo"`
+	Prcid_produto_cad    uuid.UUID `json:"id_produto_cad"`
+	Prcquantidade        float64   `json:"quantidade"`
+	Prcincdata           time.Time `json:"incdata"`
+	Prcaltdata           time.Time `json:"altdata"`
+	Prcid_usuario        uuid.UUID `json:"id_usuario"`
+	Prcgrupo             int       `json:"grupo"`
+	Prcstatus            int       `json:"status"`
 }
 
 func ValidarDadosProdutoComposto(produto *Produto_cad_composto) error {
